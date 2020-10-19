@@ -1,0 +1,10 @@
+private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            SqlConnection dataCon = new SqlConnection(connectionString);
+            dataCon.Open();
+            string query = "SELECT * FROM  Data, Foutcode, Prullenbak, Storing";
+            SqlDataAdapter sqlda = new SqlDataAdapter(query, dataCon);
+            DataTable dtbl = new DataTable();
+            sqlda.Fill(dtbl);
+            dataGridView1.DataSource = dtbl;
+        }
